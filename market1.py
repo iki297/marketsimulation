@@ -16,18 +16,21 @@ def cashier():
   while True:
     item = input("Masukan Produk (or 'hitung' to exit): ")
     jumlah= int(input("Jumlah (Masukan 1 setelah hitung): "))
-    simpan=[]
-    simpan.append(item)
-    simpan.append(jumlah)
-    pembelian.append(simpan)
+    
     if item == "hitung":
       break
     elif item in products:
       price = products[item]
+      ttl = price*jumlah
       total += price*jumlah
-      print(f"{item} costs {price:.2f}. Total: {total:.2f}")
+      print(f"{item} costs {price:.2f}. Total: {ttl:.2f}")
     else:
       print(f"Item '{item}' not found.")
+    simpan=[]
+    simpan.append(item)
+    simpan.append(jumlah)
+    simpan.append(ttl)
+    pembelian.append(simpan)
   print(f"Final total: {total:.2f}")
   uang=int(input("Uang Tunai Pembeli: Rp "))
   kembalian=int(uang-total)
