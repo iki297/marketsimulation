@@ -12,9 +12,14 @@ products = {"susu": 50000, "daging": 20000, "lampu": 15000, "masker":25000, "ape
 # Define the cashier function
 def cashier():
   total = 0
+  pembelian=[]
   while True:
     item = input("Masukan Produk (or 'hitung' to exit): ")
     jumlah= int(input("Jumlah (Masukan 1 setelah hitung): "))
+    simpan=[]
+    simpan.append(item)
+    simpan.append(jumlah)
+    pembelian.append(simpan)
     if item == "hitung":
       break
     elif item in products:
@@ -29,9 +34,8 @@ def cashier():
   print("\n========================================")
   print("========== S T R U K   B E L I =========")
   print("========================================")
-#print ("Nama\t\t:",pembeli)
-#print ("Beli\t\t:",porsi,mkn,"( Rp", totalmkn,")")
-#print ("\t\t ",gelas,mnm,"( Rp", totalmnm,")")
+  print ("Detail Pembelian")
+  print (pembelian)
   print ("Tagihan\t\t: Rp",total)
   print ("Dibayar\t\t: Rp",uang)
   print ("Kembalian\t: Rp",kembalian)
